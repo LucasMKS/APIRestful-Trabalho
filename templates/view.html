@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class='contato'>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>NOME</th>
+            <th>EMPRESA</th>
+            <th>TELEFONE</th>
+            <th>EMAIL</th>
+        </tr>
+        {%for sel in select%}
+        <tr>
+        
+            <td>{{ select['id'] }}</td>
+            <td> {{ select['nome'] }}</td>
+            <td>{{ select['empresa'] }}</td>
+            <td>{{ select['telefone'] }}</td>
+            <td>{{ select['email'] }}</td>
+        
+            
+        </tr>
+        {%endfor%}
+    </table>
+</div>
+{% endblock %}

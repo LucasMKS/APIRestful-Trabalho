@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class='contato'>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>NOME</th>
+            <th>EMPRESA</th>
+            <th>TELEFONE</th>
+            <th>EMAIL</th>
+        </tr>
+        {% for contato in contatos %}
+        <tr>
+            <td>{{ contato['id'] }}</td>
+            <td> {{ contato['nome'] }}</td>
+            <td>{{ contato['empresa'] }}</td>
+            <td>{{ contato['telefone'] }}</td>
+            <td>{{ contato['email'] }}</td>
+            <td><a href="/editar/{{ contato['id'] }}">Editar</a></td>
+            <td><a href="/deletar/{{ contato['id'] }}">Deletar</a></td>
+        </tr>
+
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

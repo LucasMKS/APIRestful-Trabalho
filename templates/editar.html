@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form class="shadow-pop-br" id="edit" action="/editar/{{ contato['id'] }}" method="post">
+    <label for="nome">Nome:</label>
+    <br>
+    <input id="inp" type="text" name="nome" placeholder="Nome: "
+        value="{{ request.form['nome'] or contato['nome'] }}"></input>
+    <br>
+
+    <label for="empresa">Empresa:</label>
+    <br>
+    <input id="inp" type="text" name="empresa" placeholder="Empresa: "
+        value="{{ request.form['empresa'] or contato['empresa']}}"></input>
+    <br>
+
+    <label for="telefone">Telefone:</label>
+    <br>
+    <input id="inp" type="text" name="telefone" placeholder="Telefone: "
+        value="{{ request.form['telefone'] or contato['telefone']}}"></input>
+    <br>
+
+    <label for="email">Email:</label>
+    <br>
+    <input id="inp" type="email" name="email" placeholder="Email: "
+        value="{{ request.form['email'] or contato['email']}}"></input>
+    <br>
+    <button type="submit">ENVIAR</button>
+</form>
+
+
+{% endblock %}

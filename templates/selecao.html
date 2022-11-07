@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% block content %}
+<form class="shadow-pop-br" id="selecao" method="POST" accept="/selecao/">
+  <label for="pesquisa"><b>Pesquisa</b></label>
+  <br />
+  <select id="select" name="busca">
+    <option value="nome">Nome</option>
+    <option value="empresa">Empresa</option>
+    <option value="email">Email</option>
+  </select>
+  <input id="text" type="text" name="valor" />
+  <input id="button" type="submit" value="BUSCAR" />
+</form>
+{% endblock %}

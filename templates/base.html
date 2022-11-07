@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}- FlaskApp</title>
+    <link type="text/css" rel="stylesheet" href="/RestfulCop/templates/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@700;900&display=swap">
+    <style>
+        * {
+            margin: 0px;
+        }
+
+        body {
+            background-color: #004643;
+        }
+
+        body * {
+            font-family: "Roboto", sans-serif;
+        }
+
+        :root {
+            --border-boxes: 2px solid #0C1618;
+        }
+
+        nav .link {
+            color: #EDF2F4;
+            font-size: 3em;
+            margin-left: 50px;
+            text-decoration: none;
+            display: inline-block;
+            box-sizing: border-box;
+            background-color: transparent;
+            border-bottom: 4px solid transparent;
+        }
+
+        .link:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+            border-bottom: 4px solid #EDF2F4;
+
+        }
+
+        .nav {
+            background-color: #0C1618;
+            display: flex;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+
+        table,
+        th,
+        td {
+            border: 2px solid #0C1618;
+            border-collapse: collapse;
+            padding: 10px;
+            color: black;
+            background-color: #8D99AE;
+            margin: 5px;
+        }
+
+        td {
+            
+            padding: 20px;
+        }
+
+        table {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            
+        }
+
+        .contato {
+            font-size: 25px;
+            color: black;
+        }
+
+        .contato a {
+            text-decoration: none;
+            display: flex;
+            color: black;
+        }
+
+        #create {
+            font-size: 25px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            background-color: #8D99AE;
+            padding: 35px;
+            box-shadow: 5px 5px 20px 1px rgba(0, 0, 0, 0.7);
+            border-radius: 19px;
+            border: 2px solid #000;
+        }
+
+        #create #inp {
+            font-size: 15px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 5px;
+            width: 300px;
+            border-radius: 5px;
+            border: 2px solid #0C1618;
+        }
+
+        #create button {
+            width: 310px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-top: 5px;
+            cursor: pointer;
+            font-size: 15px;
+            text-decoration: none;
+            background-color: #2b2d42d0;
+            border: var(--border-boxes);
+            border-radius: 5px;
+        }
+
+        #create button:hover {
+            background-color: #2b2d42dc;
+        }
+
+        #edit {
+            font-size: 25px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            background-color: #8D99AE;
+            padding: 35px;
+            box-shadow: 5px 5px 20px 1px rgba(0, 0, 0, 0.7);
+            border-radius: 19px;
+            border: 2px solid #000;
+        }
+
+        #edit #inp {
+            font-size: 15px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 5px;
+            margin-bottom: 15px;
+            width: 300px;
+            border-radius: 5px;
+            border: var(--border-boxes);
+        }
+
+        #edit button {
+            width: 310px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-top: 5px;
+            cursor: pointer;
+            font-size: 20px;
+            text-decoration: none;
+            background-color: #2b2d42d0;
+            border: var(--border-boxes);
+            border-radius: 5px;
+        }
+
+        #edit button:hover {
+            background-color: #2b2d42dc;
+        }
+
+        .alert {
+            color: white;
+        }
+
+        .shadow-pop-br {
+            -webkit-animation: shadow-pop-br 0.5s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+            animation: shadow-pop-br 0.5s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+        }
+
+        #selecao {
+            font-size: 25px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            background-color: #8D99AE;
+            padding: 35px;
+            box-shadow: 5px 5px 20px 1px rgba(0, 0, 0, 0.7);
+            border-radius: 19px;
+            border: 2px solid #000;
+        }
+
+        #selecao label {
+            display: flex;
+            justify-content: center;
+        }
+
+        #selecao #select {
+            font-size: 15px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 5px;
+            margin-bottom: 15px;
+            width: 90px;
+            border-radius: 5px;
+            border: var(--border-boxes);
+        }
+
+        #selecao #text {
+            font-size: 15px;
+            padding: 11px;
+            margin-bottom: 15px;
+            width: 250px;
+            border-radius: 5px;
+            border: var(--border-boxes);
+        }
+
+        #selecao #button {
+            display: flex;
+            justify-content: center;
+            width: 372px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-top: 5px;
+            cursor: pointer;
+            font-size: 20px;
+            text-decoration: none;
+            background-color: #2b2d42d0;
+            border: var(--border-boxes);
+            border-radius: 5px;
+        }
+
+        #selecao #button:hover {
+            background-color: #2b2d42dc;
+        }
+
+        .alert {
+            position: relative;
+            top: 190px;
+            right: 865px;
+        }
+
+        @-webkit-keyframes shadow-pop-br {
+            0% {
+                -webkit-box-shadow: 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000;
+                box-shadow: 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000;
+                -webkit-transform: translateX(-50%) translateY(-50%);
+                transform: translateX(-50%) translateY(-50%);
+            }
+
+            100% {
+                -webkit-box-shadow: 1px 1px #000000, 2px 2px #000000, 3px 3px #000000, 4px 4px #000000, 5px 5px #000000, 6px 6px #000000, 7px 7px #000000, 8px 8px #000000;
+                box-shadow: 1px 1px #000000, 2px 2px #000000, 3px 3px #000000, 4px 4px #000000, 5px 5px #000000, 6px 6px #000000, 7px 7px #000000, 8px 8px #000000;
+                -webkit-transform: translateX(-52%) translateY(-52%);
+                transform: translateX(-52%) translateY(-52%);
+            }
+        }
+
+        @keyframes shadow-pop-br {
+            0% {
+                -webkit-box-shadow: 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000;
+                box-shadow: 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000;
+                -webkit-transform: translateX(-50%) translateY(-50%);
+                transform: translateX(-50%) translateY(-50%);
+            }
+
+            100% {
+                -webkit-box-shadow: 1px 1px #000000, 2px 2px #000000, 3px 3px #000000, 4px 4px #000000, 5px 5px #000000, 6px 6px #000000, 7px 7px #000000, 8px 8px #000000;
+                box-shadow: 1px 1px #000000, 2px 2px #000000, 3px 3px #000000, 4px 4px #000000, 5px 5px #000000, 6px 6px #000000, 7px 7px #000000, 8px 8px #000000;
+                -webkit-transform: translateX(-52%) translateY(-52%);
+                transform: translateX(-52%) translateY(-52%);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <nav>
+            <a class="link" href="{{ url_for('index') }}">Inicio</a>
+            <a class="link" href="{{ url_for('criar') }}">Criar</a>
+            <a class="link" href="{{ url_for('selecao') }}">Buscar</a>
+        </nav>
+        <div class="content">
+            {% for message in get_flashed_messages() %}
+            <div class="alert">{{ message }}</div>
+            {% endfor %}
+            {% block content %} {% endblock %}
+        </div>
+</body>
+
+</html>
